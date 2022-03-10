@@ -1,14 +1,15 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const structjson = require('./structjson.js');
 const dialogflow = require('dialogflow');
 const uuid = require('uuid');
 
-const config = require('../config/keys');
 
-const projectId = config.googleProjectID
-const sessionId = config.dialogFlowSessionID
-const languageCode = config.dialogFlowSessionLanguageCode
+
+const projectId = process.env.GOOGLE_PROJECT_ID;
+const languageCode = process.env.DIALOGFLOW_LANGUAGE_CODE;
+const sessionId = uuid.v4();
 
 
 // Create a new session
